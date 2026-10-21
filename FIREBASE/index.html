@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz đơn giản</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="container">
+    <h1>Quiz vui </h1>
+
+    <section id="home">
+      <p>Chào mừng đến với bài Quiz!</p>
+      <button id="startBtn">Bắt đầu Quiz</button>
+      <button id="showBoardBtn" class="secondary">Xem bảng xếp hạng</button>
+    </section>
+
+    <section id="quiz" hidden>
+      <p id="questionNumber"></p>
+      <h2 id="question"></h2>
+      <div id="answers"></div>
+      <p id="feedback"></p>
+      <p>Điểm: <strong id="score">0</strong></p>
+      <button id="nextBtn" disabled>Tiếp theo</button>
+    </section>
+
+    <section id="result" hidden>
+      <h2>Hoàn thành Quiz!</h2>
+      <p>Điểm của bạn: <strong id="finalScore"></strong></p>
+      <button id="saveBtn">Lưu điểm</button>
+      <button id="againBtn" class="secondary">Chơi lại</button>
+    </section>
+
+    <section id="leaderboard" hidden>
+      <h2>Bảng xếp hạng</h2>
+      <ol id="scoresList"></ol>
+      <p id="emptyMessage">Chưa có điểm nào được lưu.</p>
+      <button id="homeBtn" class="secondary">Về trang chủ</button>
+    </section>
+  </main>
+</body>
+</html>
