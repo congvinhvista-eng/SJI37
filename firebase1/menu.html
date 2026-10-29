@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f7f4ed" />
+    <title>Thực đơn — Mộc Coffee</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Mộc Coffee - Trang chủ">
+        <span class="brand-mark" aria-hidden="true">m.</span>
+        <span class="brand-name">mộc<span>coffee</span></span>
+      </a>
+      <nav class="main-nav" aria-label="Điều hướng chính">
+        <a class="nav-link" href="index.html">Trang chủ</a>
+        <a class="nav-link active" href="#menu">Thực đơn</a>
+      </nav>
+      <a class="header-cta" href="auth.html">Tài khoản <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <main class="menu-page" id="menuPage" hidden>
+      <section class="menu-intro">
+        <p class="eyebrow"><span class="eyebrow-line"></span> PHA BẰNG CẢ SỰ TỬ TẾ</p>
+        <h1>Thực đơn <em>nhà Mộc</em></h1>
+        <p>Chọn một món bạn thích, Mộc sẽ chuẩn bị thật ngon nhé.</p>
+      </section>
+
+      <section class="menu-section full-menu-section" id="menu">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow"><span class="eyebrow-line"></span> ĐỒ UỐNG CỦA MỘC</p>
+            <h2>Món nào cũng <em>thương</em></h2>
+          </div>
+          <a class="text-link menu-link" href="index.html#home">← Về trang chủ</a>
+        </div>
+
+        <div class="menu-grid" id="menuGrid" aria-live="polite"></div>
+      </section>
+
+      <section class="cart-panel" aria-label="Giỏ hàng">
+        <div class="cart-details">
+          <span class="cart-icon" aria-hidden="true">♡</span>
+          <div>
+            <strong>Giỏ nhỏ của bạn</strong>
+            <span><span id="cartCount">0</span> món · <span id="cartTotal">0đ</span></span>
+          </div>
+        </div>
+        <button class="button button-primary" id="placeOrderBtn" type="button" disabled>
+          Đặt món <span aria-hidden="true">→</span>
+        </button>
+      </section>
+      <p class="cart-note" id="cartMessage" role="status" aria-live="polite">
+        Thêm món vào giỏ để bắt đầu chọn nhé. Đặt món trực tuyến hiện chưa được kết nối.
+      </p>
+    </main>
+
+    <p class="menu-login-status" id="menuLoginStatus" role="status" aria-live="polite">
+      Đang kiểm tra tài khoản...
+    </p>
+
+    <footer class="site-footer">
+      <a class="brand footer-brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">m.</span>
+        <span class="brand-name">mộc<span>coffee</span></span>
+      </a>
+      <p>Chậm lại một chút, thương mình nhiều hơn.</p>
+      <span>© 2026 Mộc Coffee</span>
+    </footer>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/firebase/12.3.0/firebase-app-compat.min.js"
+      integrity="sha512-zsS5bYRYbUfQoiBborfMx+u5mik4iJjArgIzVqwvaNNfVFkI2NWxjKSxDhMi76NIZFr42c3dxjl/gfK7RSwZEw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/firebase/12.3.0/firebase-firestore-compat.min.js"
+      integrity="sha512-XvOrgZ2KvcbkPE3SpoVqGiOPVgv31xAx0FAE2/Qevz5T+uOHlAu+Dp2XCG39sbTAyPGDsA3LUDUt5fQ5kUJ6rw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/firebase/12.3.0/firebase-auth-compat.min.js"
+      integrity="sha512-N/0/VqvpkuZuv5th2FS0v4NLRrBytDdD/CWIGhI1c4pkE84c/zmwfV1vrBXDYQ+++SInivkSK/y92JK2FNXo7Q=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="firebase-config.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>

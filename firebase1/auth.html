@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f7f4ed" />
+    <title>Đăng nhập — Mộc Coffee</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body class="auth-body">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Mộc Coffee - Trang chủ">
+        <span class="brand-mark" aria-hidden="true">m.</span>
+        <span class="brand-name">mộc<span>coffee</span></span>
+      </a>
+      <a class="header-cta" href="index.html">Về trang chủ <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <main class="auth-page" id="authPage">
+      <section class="auth-intro">
+        <p class="eyebrow"><span class="eyebrow-line"></span> GÓC THÂN QUEN</p>
+        <h1>Mộc luôn có<br />một chỗ <em>cho bạn.</em></h1>
+        <p>Đăng nhập để xem thực đơn và chọn món yêu thích.</p>
+        <div class="auth-coffee-image" role="img" aria-label="Cà phê trong không gian ấm áp"></div>
+      </section>
+
+      <section class="auth-card" aria-labelledby="authHeading">
+        <a class="auth-back-link" href="index.html">← Trở về trang chủ</a>
+        <div class="auth-tabs" aria-label="Chọn đăng nhập hoặc đăng ký">
+          <button class="auth-tab active" type="button" data-auth-mode="login" aria-pressed="true">Đăng nhập</button>
+          <button class="auth-tab" type="button" data-auth-mode="register" aria-pressed="false">Đăng ký</button>
+        </div>
+
+        <h2 id="authHeading">Chào mừng bạn trở lại</h2>
+        <p class="auth-description" id="authDescription">
+          Đăng nhập để tiếp tục khám phá menu nhà Mộc.
+        </p>
+
+        <form class="auth-form" id="loginForm">
+          <label id="authNameField" hidden>
+            Tên của bạn
+            <input id="authName" name="name" type="text" autocomplete="name" placeholder="Tên bạn" />
+          </label>
+          <label>
+            Email
+            <input id="authEmail" name="email" type="email" autocomplete="email" placeholder="ban@email.com" required />
+          </label>
+          <label>
+            Mật khẩu
+            <input id="authPassword" name="password" type="password" autocomplete="current-password" placeholder="Ít nhất 6 ký tự" minlength="6" required />
+          </label>
+          <button class="button button-primary auth-submit" id="authSubmit" type="submit">Đăng nhập <span aria-hidden="true">→</span></button>
+        </form>
+
+        <div class="auth-separator"><span>hoặc tiếp tục với</span></div>
+        <button class="auth-google-button" id="googleLogin" type="button">
+          <span class="google-mark" aria-hidden="true">G</span>
+          Tiếp tục với Google
+        </button>
+        <button class="auth-facebook-button" id="facebookLogin" type="button">
+          <span class="facebook-mark" aria-hidden="true">f</span>
+          Tiếp tục với Facebook
+        </button>
+        <p class="auth-status" id="authStatus" role="status" aria-live="polite"></p>
+        <div class="auth-signed-in" id="authSignedIn" hidden>
+          <p>Đang đăng nhập bằng <strong id="signedInEmail"></strong></p>
+          <a class="button button-primary" href="menu.html">Mở thực đơn <span aria-hidden="true">→</span></a>
+          <button class="auth-signout" id="authSignOut" type="button">Đăng xuất</button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer auth-footer">
+      <a class="brand footer-brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">m.</span>
+        <span class="brand-name">mộc<span>coffee</span></span>
+      </a>
+      <p>Chậm lại một chút, thương mình nhiều hơn.</p>
+      <span>© 2026 Mộc Coffee</span>
+    </footer>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/firebase/12.3.0/firebase-app-compat.min.js"
+      integrity="sha512-zsS5bYRYbUfQoiBborfMx+u5mik4iJjArgIzVqwvaNNfVFkI2NWxjKSxDhMi76NIZFr42c3dxjl/gfK7RSwZEw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/firebase/12.3.0/firebase-firestore-compat.min.js"
+      integrity="sha512-XvOrgZ2KvcbkPE3SpoVqGiOPVgv31xAx0FAE2/Qevz5T+uOHlAu+Dp2XCG39sbTAyPGDsA3LUDUt5fQ5kUJ6rw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/firebase/12.3.0/firebase-auth-compat.min.js"
+      integrity="sha512-N/0/VqvpkuZuv5th2FS0v4NLRrBytDdD/CWIGhI1c4pkE84c/zmwfV1vrBXDYQ+++SInivkSK/y92JK2FNXo7Q=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="firebase-config.js"></script>
+    <script src="auth.js"></script>
+  </body>
+</html>

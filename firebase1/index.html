@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Mộc Coffee — một góc nhỏ để thưởng thức cà phê ngon và những phút giây chậm rãi."
+    />
+    <meta name="theme-color" content="#f7f4ed" />
+    <title>Mộc Coffee — Chạm vị an yên</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#home" aria-label="Mộc Coffee - Trang chủ">
+        <span class="brand-mark" aria-hidden="true">m.</span>
+        <span class="brand-name">mộc<span>coffee</span></span>
+      </a>
+
+      <nav class="main-nav" aria-label="Điều hướng chính">
+        <a class="nav-link active" href="#home">Trang chủ</a>
+        <a class="nav-link" href="#menu">Thực đơn</a>
+        <a class="nav-link" href="#story">Câu chuyện</a>
+      </nav>
+
+      <a class="header-cta" href="auth.html"
+        >Ghé thăm chúng mình <span aria-hidden="true">↗</span></a
+      >
+    </header>
+
+    <main>
+      <section class="hero" id="home">
+        <div class="hero-copy">
+          <p class="eyebrow">
+            <span class="eyebrow-line"></span> CÀ PHÊ ĐẶC SẢN · TỪ 2020
+          </p>
+          <h1>Chậm một chút,<br />thấy ngày <em>dịu hơn.</em></h1>
+          <p class="hero-description">
+            Một tách cà phê thơm, một góc thật yên. Mộc luôn có chỗ dành cho
+            những ngày bạn muốn sống chậm lại.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#menu"
+              >Khám phá thực đơn <span aria-hidden="true">→</span></a
+            >
+            <a class="text-link" href="#story"
+              ><span class="play-icon" aria-hidden="true">▶</span> Chuyện của
+              Mộc</a
+            >
+          </div>
+          <div class="hero-note">
+            <div class="avatar-stack" aria-hidden="true">
+              <span>H</span><span>L</span><span>M</span>
+            </div>
+            <p><strong>4.9/5</strong> từ những vị khách thân quen</p>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <img
+            class="hero-photo"
+            alt="Một tách cà phê nóng trong không gian quán ấm cúng"
+            src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+          />
+          <div class="photo-label">
+            <span class="label-dot"></span> Rang mới mỗi ngày
+          </div>
+          <div class="coffee-stamp" aria-hidden="true">
+            <span>GOOD COFFEE</span>
+            <span class="stamp-star">✳</span>
+            <span>GOOD MOOD</span>
+          </div>
+          <div class="hero-caption">
+            <span>01 / 03</span>
+            <span class="caption-divider"></span>
+            <span>Một góc nhỏ bình yên</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="quick-facts" aria-label="Điểm đặc biệt của Mộc">
+        <div class="fact">
+          <span class="fact-icon" aria-hidden="true">✳</span>
+          <div>
+            <strong>Hạt cà phê tuyển chọn</strong
+            ><span>Từ những nông trại Việt Nam</span>
+          </div>
+        </div>
+        <div class="fact">
+          <span class="fact-icon" aria-hidden="true">⌁</span>
+          <div>
+            <strong>Rang mới mỗi ngày</strong
+            ><span>Trọn vị trong từng tách nhỏ</span>
+          </div>
+        </div>
+        <div class="fact">
+          <span class="fact-icon" aria-hidden="true">♡</span>
+          <div>
+            <strong>Pha bằng cả sự tử tế</strong
+            ><span>Để bạn luôn muốn quay lại</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="menu-section" id="menu">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow"><span class="eyebrow-line"></span> MỘC GỢI Ý</p>
+            <h2>Mấy món <em>nhà mình</em></h2>
+          </div>
+          <a class="text-link menu-link" href="auth.html"
+            >Xem thêm món <span aria-hidden="true">→</span></a
+          >
+        </div>
+
+        <div class="menu-grid" id="menuGrid" aria-live="polite"></div>
+        <button
+          class="button button-primary"
+          id="loadMoreBtn"
+          type="button"
+          disabled
+        >
+          Xem thêm món <span aria-hidden="true">→</span>
+        </button>
+      </section>
+
+      <section class="account-section" id="account">
+        <div class="account-copy">
+          <p class="eyebrow">
+            <span class="eyebrow-line"></span> GÓC THÂN QUEN
+          </p>
+          <h2>Mỗi lần ghé,<br />thêm một chút <em>thương.</em></h2>
+          <p>Tạo tài khoản hoặc đăng nhập để khám phá trọn vẹn menu nhà Mộc nhé.</p>
+          <a class="button button-primary" href="auth.html">
+            Đăng nhập / Đăng ký <span aria-hidden="true">→</span>
+          </a>
+        </div>
+        <div class="member-card">
+          <span class="member-card-icon" aria-hidden="true">m.</span>
+          <p class="member-card-label">MỘC LUÔN CHỜ BẠN</p>
+          <p class="member-card-copy">
+            Đăng nhập để xem thực đơn đầy đủ và chọn món yêu thích.
+          </p>
+          <a class="member-card-link" href="auth.html">
+            Vào góc thân quen <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="story-section" id="story">
+        <span class="story-mark" aria-hidden="true">“</span>
+        <p>
+          Chúng mình tin rằng một tách cà phê ngon có thể làm ngày hôm nay trở
+          nên dịu dàng hơn.
+        </p>
+        <span class="story-signature">— Mộc, bằng cả tấm lòng</span>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="brand footer-brand" href="#home"
+        ><span class="brand-mark" aria-hidden="true">m.</span
+        ><span class="brand-name">mộc<span>coffee</span></span></a
+      >
+      <p>Chậm lại một chút, thương mình nhiều hơn.</p>
+      <span>© 2026 Mộc Coffee</span>
+    </footer>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/firebase/12.3.0/firebase-app-compat.min.js"
+      integrity="sha512-zsS5bYRYbUfQoiBborfMx+u5mik4iJjArgIzVqwvaNNfVFkI2NWxjKSxDhMi76NIZFr42c3dxjl/gfK7RSwZEw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/firebase/12.3.0/firebase-firestore-compat.min.js"
+      integrity="sha512-XvOrgZ2KvcbkPE3SpoVqGiOPVgv31xAx0FAE2/Qevz5T+uOHlAu+Dp2XCG39sbTAyPGDsA3LUDUt5fQ5kUJ6rw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/firebase/12.3.0/firebase-storage-compat.min.js"
+      integrity="sha512-V0h/pgBsYY6PwRZoj5G9+aTkdsEC3uzSwc2dV3C+RObL/FilZ4pqqvEcWAFAIhgn1I7k1ElZO/xo5V9qeQ4L3A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/firebase/12.3.0/firebase-auth-compat.min.js"
+      integrity="sha512-N/0/VqvpkuZuv5th2FS0v4NLRrBytDdD/CWIGhI1c4pkE84c/zmwfV1vrBXDYQ+++SInivkSK/y92JK2FNXo7Q=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="firebase-config.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
