@@ -6,6 +6,8 @@ const authSubmitButton = document.getElementById("authSubmit");
 const authModeTabs = document.querySelectorAll("[data-auth-mode]");
 const authSignedIn = document.getElementById("authSignedIn");
 const authFormSection = document.querySelector(".auth-card");
+const requestedReturn = new URLSearchParams(window.location.search).get("returnTo");
+const returnTo = requestedReturn === "menu.html#cart" ? requestedReturn : "menu.html";
 let authMode = "login";
 
 function showAuthMessage(message) {
@@ -29,8 +31,8 @@ function saveUser(user) {
 
 function finishSignIn(user) {
   return saveUser(user).then(function () {
-    showAuthMessage("Đăng nhập thành công. Đang mở thực đơn...");
-    window.location.href = "menu.html";
+    showAuthMessage("Đăng nhập thành công. Đang quay lại đặt món...");
+    window.location.href = returnTo;
   });
 }
 

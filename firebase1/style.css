@@ -792,12 +792,6 @@ a:focus-visible {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
-.menu-login-status {
-  color: var(--muted);
-  font-size: 12px;
-  text-align: center;
-}
-
 .full-menu-section .menu-card {
   display: flex;
   width: auto;

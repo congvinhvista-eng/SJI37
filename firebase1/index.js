@@ -101,6 +101,31 @@ const cartCount = document.getElementById("cartCount");
 const cartTotal = document.getElementById("cartTotal");
 const placeOrderBtn = document.getElementById("placeOrderBtn");
 const cartMessage = document.getElementById("cartMessage");
+const cartStorageKey = "moc-order-cart";
+
+function restoreCart() {
+  const savedCart = sessionStorage.getItem(cartStorageKey);
+  if (!savedCart) return;
+
+  try {
+    const savedItems = JSON.parse(savedCart);
+    if (!Array.isArray(savedItems)) {
+      throw new Error("Dữ liệu giỏ hàng không hợp lệ.");
+    }
+
+    savedItems.forEach(function (savedItem) {
+      const drink = menu.find(function (item) {
+        return item.name === savedItem.name;
+      });
+      if (!drink || !Number.isInteger(savedItem.quantity) || savedItem.quantity < 1) return;
+
+      cart.push({ name: drink.name, price: drink.price, quantity: savedItem.quantity });
+    });
+  } catch (error) {
+    console.error("Không thể khôi phục giỏ hàng:", error);
+    sessionStorage.removeItem(cartStorageKey);
+  }
+}
 
 function updateCart() {
   if (!cartCount || !cartTotal || !placeOrderBtn) return;
@@ -115,6 +140,11 @@ function updateCart() {
   cartCount.textContent = totalCount;
   cartTotal.textContent = totalPrice.toLocaleString("vi-VN") + "đ";
   placeOrderBtn.disabled = totalCount === 0;
+}
+
+if (menuPage) {
+  restoreCart();
+  updateCart();
 }
 
 if (menuPage && menuGrid) {
@@ -134,36 +164,28 @@ if (menuPage && menuGrid) {
     }
 
     updateCart();
+    sessionStorage.setItem(cartStorageKey, JSON.stringify(cart));
     cartMessage.textContent = "Đã thêm " + drink.name + " vào giỏ.";
   });
 }
 
 if (placeOrderBtn) {
   placeOrderBtn.addEventListener("click", function () {
+    if (!firebase.auth().currentUser) {
+      cartMessage.textContent = "Bạn cần đăng nhập để đặt món. Đang chuyển đến trang đăng nhập...";
+      window.location.href = "auth.html?returnTo=" + encodeURIComponent("menu.html#cart");
+      return;
+    }
+
     cartMessage.textContent = "Giỏ hàng đã sẵn sàng. Đặt món trực tuyến hiện chưa được kết nối.";
   });
 }
 
 
 const loadMoreBtn = document.getElementById("loadMoreBtn");
-const menuLoginStatus = document.getElementById("menuLoginStatus");
 
-firebase.auth().onAuthStateChanged(function (user) {
-  if (loadMoreBtn) {
-    loadMoreBtn.disabled = !user;
-    loadMoreBtn.onclick = user ? function () {
-      window.location.href = "menu.html";
-    } : null;
-  }
-
-  if (menuPage) {
-    if (user) {
-      menuPage.hidden = false;
-    } else {
-      if (menuLoginStatus) {
-        menuLoginStatus.textContent = "Bạn cần đăng nhập để xem menu. Đang quay lại trang tài khoản...";
-      }
-      window.location.replace("index.html#account");
-    }
-  }
-});
+if (loadMoreBtn) {
+  loadMoreBtn.addEventListener("click", function () {
+    window.location.href = "menu.html";
+  });
+}
